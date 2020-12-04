@@ -1,5 +1,7 @@
 import java.io.File
 import java.io.InputStream
+import java.util.regex.Matcher
+import java.util.regex.Pattern
 
 class Util {
     companion object {
@@ -11,4 +13,18 @@ class Util {
             return lineList.toIntArray()
         }
     }
+}
+
+fun main(){
+
+    var subjectString = "341e13"
+    val regex: Pattern = Pattern.compile("#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})\$")
+    val found = regex.matcher(subjectString).find()
+    println("found $found")
+    val regexMatcher: Matcher = regex.matcher(subjectString)
+    if (regexMatcher.find()) {
+        println("found a match")
+    }
+
+
 }
