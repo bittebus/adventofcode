@@ -1,5 +1,6 @@
 package advent.of.code
 
+import advent.Util
 import kotlin.system.measureNanoTime
 
 class FirstDay {
@@ -30,13 +31,11 @@ class FirstDay {
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val firstDay = FirstDay()
-    val list = Util.readFileLines("/dayOne.txt")
-    println("list is ${list.size}")
-    println("###################")
-    var value1: Int = 0
-    var value2: Int = 0
+    val list = Util.fileToIntArray("/dayOne.txt")
+    var value1: Int
+    var value2: Int
     val timeInNanos1 = measureNanoTime {
         value1 = firstDay.calculateFirst(list, list)
     }
@@ -49,12 +48,3 @@ fun main(args: Array<String>) {
     println("first took $timeInNanos1 ns")
     println("second took $timeInNanos2 ns")
 }
-
-//first took 367343 ns
-//second took 872124 ns
-
-//first took 379250 ns
-//second took 9991247 ns
-
-//1309.383 µs
-//17840.393 µs

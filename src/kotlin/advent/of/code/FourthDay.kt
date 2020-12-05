@@ -1,7 +1,7 @@
 package advent.of.code
 
+import advent.Util.Companion.fileToStringList
 import advent.of.dto.Passport
-import java.io.File
 import kotlin.system.measureNanoTime
 
 class FourthDay {
@@ -25,13 +25,9 @@ class FourthDay {
 
 fun main() {
     val fourthDay = FourthDay()
-//    val url = fourthDay::class.java.getResource("/test.txt")
-    val url = fourthDay::class.java.getResource("/dayFour.txt")
-    val fullText = File(url.file).readLines()
+    val list = fileToStringList("/dayFour.txt")
     val timeInNanos = measureNanoTime {
-        fourthDay.first(fullText)
+        fourthDay.first(list)
     }
     println("$timeInNanos nanos ${timeInNanos/1000} micros ${timeInNanos/1000000} millis")
-
-    //110
 }
