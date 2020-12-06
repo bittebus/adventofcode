@@ -1,5 +1,6 @@
 package advent
 
+import advent.Util.Companion.fileSplitOnNewLine
 import java.io.File
 import java.io.InputStream
 
@@ -17,6 +18,22 @@ class Util {
             val url = Util::class.java.getResource(pathName)
             return File(url.file).readLines()
         }
+
+        fun fileSplitOnNewLine(pathName: String): List<String> {
+            val url = Util::class.java.getResource(pathName)
+            return File(url.file).readText().split(System.lineSeparator()+ System.lineSeparator())
+        }
+    }
+}
+
+fun main() {
+    val files = fileSplitOnNewLine("/test.txt")
+    println("size = ${files.size}")
+
+    files.map {
+        println("start")
+        println(it)
+        println("end")
     }
 }
 
