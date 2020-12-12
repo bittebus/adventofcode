@@ -41,7 +41,7 @@ class SixthDay {
 }
 
 fun main() {
-    var list = Util.fileSplitOnNewLine("/daySix.txt")
+    var list = Util.fileSplitOnEmptyLine("/daySix.txt")
     val sixthDay = SixthDay()
     var answer: Int
     var yesSum: Int
